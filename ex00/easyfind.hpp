@@ -20,7 +20,7 @@
 template <typename T>
 void	easyfind(T& container, int value)
 {
-	for (int i = 0; i < container.size(); i++)
+	for (unsigned int i = 0; i < container.size(); i++)
 	{
 		if (container[i] == value)
 		{

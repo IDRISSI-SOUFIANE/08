@@ -16,8 +16,14 @@ int	main()
 {
 	std::vector<int> v;
 
-	v = {1, 2, 1337, 42, 10, 0};
+	// v = {1, 2, 1337, 42, 10, 0};
 
-	easyfind(v, 00);
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(1337);
+	v.push_back(42);
+	v.push_back(0);
+
+	easyfind(v, 1337); // check this trick
 	return (0);
 }

@@ -16,18 +16,20 @@ RM = rm -f
 
 FILES = main.cpp
 OBJECT = $(FILES:.cpp=.o)
-NAME = whatever
+NAME = Easyfind
 
 all: $(NAME)
 
 $(NAME): $(OBJECT)
-    $(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
+	$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-%.o: %.cpp whatever.hpp
-    $(CC) $(CXXFLAGS) -c $< -o $@
+%.o: %.cpp easyfind.hpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
-    $(RM) $(OBJECT)
+	$(RM) $(OBJECT)
 
 fclean: clean
-    $(RM) $(NAME)
+	$(RM) $(NAME)
+
+re: fclean all
