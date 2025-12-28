@@ -36,23 +36,27 @@ void	Span::addNumber(unsigned int value)
 
 unsigned int	Span::shortestSpan()
 {
-	if (data.size() < 2)
-		throw  std::out_of_range("Not Enough Number");
-	unsigned int	dif ;
-	unsigned int	min = 0;
-	std::sort(data.begin(), data.end());
+	unsigned int	diff;
+	unsigned int	min;
 
-	for (unsigned int i = 0; i < N; i++)
+	if (data.size() < 2)
+		throw  std::runtime_error("Not Enough element");
+	
+	std::vector<int>tmp = data;
+	std::sort(tmp.begin(), tmp.end());
+
+	min = abs(tmp[1] - tmp[0]);
+
+	for (size_t i = 0; i + 1 < tmp.size(); i++)
 	{
-		for (unsigned int j = i + 1; j < N; j++)
-		{
-			dif = abs(data[i] - data[j]);
-			if (dif <= min)
-				min = dif;
-		}
+		diff = abs(tmp[i + 1] - tmp[i]);
+		if (diff <= min)
+			min = diff;
 	}
 	return (min);
 }
+
+
 
 unsigned int	Span::longestSpan()
 {

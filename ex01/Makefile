@@ -6,7 +6,7 @@
 #    By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/23 10:11:46 by sidrissi          #+#    #+#              #
-#    Updated: 2025/12/23 10:11:47 by sidrissi         ###   ########.fr        #
+#    Updated: 2025/12/28 10:27:24 by sidrissi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJECT)
 	$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-%.o: %.cpp easyfind.hpp Span.hpp
+%.o: %.cpp Span.hpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
