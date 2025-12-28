@@ -10,15 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// #ifndef MUTANTSTACK_HPP
+// #define MUTANTSTACK_HPP
+
+// #include <iostream>
+// #include <stack>
+
+// template <typename T>
+// class MutantStack : public std::stack<T>
+// {
+//     private:
+//         // std::stack<T>  data;
+//     public:
+//         /* orthodox>? */
+
+// };
+
+// #endif
+
+
+
+
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
-#include <iostream>
+#include <stack>
 
-class MutantStack
-{};
+template <typename T>
+class MutantStack : public std::stack<T>
+{
+public:
+    // Orthodox Canonical Form
+    MutantStack() {}
+    MutantStack(const MutantStack& other) : std::stack<T>(other) {}
+    MutantStack& operator=(const MutantStack& other)
+    {
+        if (this != &other)
+            std::stack<T>::operator=(other);
+        return *this;
+    }
+    ~MutantStack() {}
 
+    // Iterator typedef
+    typedef typename std::stack<T>::container_type::iterator iterator;
 
+    // Iterator access
+    iterator begin() { return this->c.begin(); }
+    iterator end() { return this->c.end(); }
+};
 
 #endif
-
