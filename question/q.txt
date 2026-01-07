@@ -1,0 +1,7 @@
+What mean : typename? iterator? find? begin? end?
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+
+
+
+WHAT THE ALGO BEHIND `SORT`: QUIQSORT? INSERTSORT?
+std::sort(tmp.begin(), tmp.end());

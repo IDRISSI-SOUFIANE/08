@@ -24,13 +24,13 @@ public:
 
 	void addAll(std::vector<int> &v);
 
-	void print()
-	{
-		for (size_t i = 0; i < data.size(); i++)
-		{
-			std::cout << data[i] << "\n";
-		}
-	}
+	// void print()
+	// {
+	// 	for (size_t i = 0; i < data.size(); i++)
+	// 	{
+	// 		std::cout << data[i] << "\n";
+	// 	}
+	// }
 };
 
 #endif

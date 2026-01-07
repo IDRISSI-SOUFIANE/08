@@ -16,7 +16,7 @@ RM = rm -f
 
 FILES = main.cpp MutantStack.cpp
 OBJECT = $(FILES:.cpp=.o)
-NAME = Easyfind
+NAME = MutantStack
 
 all: $(NAME)
 

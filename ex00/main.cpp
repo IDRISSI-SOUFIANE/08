@@ -24,6 +24,6 @@ int	main()
 	v.push_back(42);
 	v.push_back(0);
 
-	easyfind(v, 1337); // check this trick
+	easyfind(v, 42); // check this trick
 	return (0);
 }

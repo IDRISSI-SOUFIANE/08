@@ -20,15 +20,13 @@
 template <typename T>
 void	easyfind(T& container, int value)
 {
-	for (unsigned int i = 0; i < container.size(); i++)
-	{
-		if (container[i] == value)
-		{
-			std::cout << "value found\n";
-			return ;
-		}
-	}
-	std::cout << "value not found\n";
+	typename T::iterator it = std::find(container.begin(), container.end(), value);
+
+	if (it == container.end())
+		std::cout << "value Not Found\n";
+		else
+		std::cout << "value Found\n";
+
 }
 
 #endif

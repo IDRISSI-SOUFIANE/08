@@ -47,7 +47,7 @@ unsigned int	Span::shortestSpan()
 
 	min = abs(tmp[1] - tmp[0]);
 
-	for (size_t i = 0; i + 1 < tmp.size(); i++)
+	for (size_t i = 0; i + 1 < tmp.size(); i++) // i+1?
 	{
 		diff = abs(tmp[i + 1] - tmp[i]);
 		if (diff <= min)
@@ -55,8 +55,6 @@ unsigned int	Span::shortestSpan()
 	}
 	return (min);
 }
-
-
 
 unsigned int	Span::longestSpan()
 {
@@ -73,7 +71,7 @@ void	Span::addAll(std::vector<int>& v)
 	for (unsigned int i = 0; i < v.size(); i++)
 	{
 		if (data.size() >= N)
-			throw std::exception();
+			throw std::runtime_error("You Reach The Max Of Element");
 		data.push_back(v[i]);
 	}
 }
