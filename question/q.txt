@@ -1,7 +1,184 @@
+QUESTIONS:
+**********
+
 What mean : typename? iterator? find? begin? end?
 	typename T::iterator it = std::find(container.begin(), container.end(), value);
 
 
-
 WHAT THE ALGO BEHIND `SORT`: QUIQSORT? INSERTSORT?
 std::sort(tmp.begin(), tmp.end());
+
+
+types container and different betweene each others
+	1. Sequence Containers ? 2. Associative Containers ? 3. Unordered Associative Containers ?
+	4. Container Adapters ?
+
+
+container? VS container Adapters?
+
+You must understand why adapters hide iterators?
+
+You’re forced to ask why iteration is missing?
+
+
+
+
+
+ANSERS:
+*******
+
+container? VS container Adapters?
+---------------------------------
+
+What is an “adapter” (general concept)
+
+An adapter is a design pattern.
+
+	An adapter takes something powerful and flexible, and restricts or reshapes how you can use it.
+
+It does not add power.
+It removes freedom on purpose.
+
+Real-life analogy
+Think of:
+	A kitchen knife (very flexible, dangerous)
+	A butter knife (restricted use, safer)
+
+
+
+
+1/
+What is a container adapter?
+
+A container adapter is not a real container by itself.
+It is a wrapper that uses another container internally and restricts how you can access it.
+
+Think of it like this:
+
+A container adapter = a rule-enforcer on top of a container
+
+
+
+std::stack is a container adapter.
+That means:
+	It does not store elements itself
+	It wraps another container (by default std::deque)
+
+	std::stack<int>
+		└── uses std::deque<int> internally
+
+
+2/
+Why can’t we iterate over std::stack?
+		It’s because the interface is intentionally restricted.
+std::stack only exposes:
+push()
+pop()
+top()
+size()
+empty()
+
+No:
+begin()
+end()
+operator[]
+
+3/
+std::stack:
+
+❌ does NOT store data itself
+
+✅ uses another container internally (by default std::deque)
+
+❌ hides most operations
+
+✅ exposes only stack rules (LIFO)
+
+
+So:
+deque stores the data
+
+stack controls how you access it
+
+
+4/
+Why adapters exist?
+
+Because sometimes you want:
+	Behavior, not flexibility
+	Safety, not freedom
+
+A stack must:
+	Push only on top
+	Pop only from top
+	Never allow random access
+	So STL intentionally blocks iterators.
+
+
+summary:
+	A container adapter is a class that uses another container internally
+	and exposes only a limited interface to enforce a specific behavior.
+
+
+
+
+
+Containers vs Container Adapters in STL
+----------------------------------------
+
+🔹 STL Containers (raw storage)
+		Examples:
+			std::vector
+			std::list
+			std::deque
+
+		They provide:
+			Full access
+			Iterators
+			Random access (sometimes)
+			Insert / erase anywhere
+
+		They answer the question:
+			“How do I store data?”
+
+🔹 STL Container Adapters (behavior enforcers)
+
+		Examples:
+			std::stack
+			std::queue
+			std::priority_queue
+
+			They:
+			Do not store data themselves
+			Use another container internally
+			Hide most operations
+			Enforce a strict rule
+
+		They answer the question:
+				“How am I allowed to use the data?”
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3/ container Adapters
+		---> class intern ? ---> class Adapter --> class use underhood --> stack --> class `deque`
+--> restricte the rules of what
