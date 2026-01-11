@@ -6,10 +6,9 @@
 /*   By: sidrissi <sidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 12:39:04 by sidrissi          #+#    #+#             */
-/*   Updated: 2025/12/28 12:40:17 by sidrissi         ###   ########.fr       */
+/*   Updated: 2026/01/11 10:49:24 by sidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
@@ -19,27 +18,16 @@
 template <typename T>
 class MutantStack : public std::stack<T>
 {
-public:
-    // Orthodox Canonical Form
-    MutantStack() {}
-    MutantStack(const MutantStack& other) : std::stack<T>(other) {}
-    MutantStack& operator=(const MutantStack& other)
-    {
-        if (this != &other)
-            std::stack<T>::operator=(other);
-        return *this;
-    }
-    ~MutantStack() {}
+	public:
+		MutantStack();
+		MutantStack(const MutantStack& other);
+		MutantStack& operator=(const MutantStack& other);
+		~MutantStack();
 
-    // Iterator typedef
-    typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::iterator iterator;
 
-    // Iterator access
-    iterator begin() { return this->c.begin(); }
-    iterator end() { return this->c.end(); }
+		iterator begin();
+		iterator end();
 };
 
 #endif
-
-
-
